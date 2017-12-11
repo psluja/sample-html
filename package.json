@@ -1,0 +1,10 @@
+{
+  "name": "bootstrap-template",
+  "version": "1.0.0",
+  "main": "out/index.html",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "holder": "^0.0.0"
+  }
+}
