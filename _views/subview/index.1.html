@@ -1,0 +1,68 @@
+﻿#{
+LayoutName = '_Layout.html';
+}#
+
+ <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+              
+              <!-- Three columns of text below the carousel -->
+              <div class="row">
+                #{
+                  var result = '';
+                  for(var thumb of query.GetThumbnailList()
+                  .filter((entity)=> entity.GroupName === 'marketing-items'))
+                  {
+                    result += `                
+                      <div class="col-lg-4"> 
+                        <img class="img-circle" src="${thumb.ImageUrl}" alt="Generic placeholder image" width="${thumb.Width}" height="${thumb.Height}">
+                        <h2>${thumb.Caption}</h2>
+                        <p>${thumb.Text}</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                      </div><!-- /.col-lg-4 -->`;
+                    }
+                  return result; 
+                }#        
+        </div>
+              <!-- START THE FEATURETTES -->
+        
+              <hr class="featurette-divider">
+              #{
+                  var result = '';
+                  var index = 0;
+                  for(var thumb of query.GetThumbnailList()
+                  .filter((entity)=> entity.GroupName === 'feature-items'))
+                  {
+
+                    var evenTextClass = '';
+                    var evenImageClass = '';
+                    if ((index % 2) !== 1) 
+                    {
+                      evenTextClass = 'col-md-7';
+                      evenImageClass = 'col-md-5';
+                    }
+                    else{
+                      
+                      evenTextClass = 'col-md-7 col-md-push-5';
+                      evenImageClass = 'col-md-5 col-md-pull-7';
+                    }
+                    index++;
+                    result += `                
+                    <div class="row featurette">
+                        <div class="${evenTextClass}">
+                          <h2 class="featurette-heading">${thumb.Caption}</span></h2>
+                          <p class="lead">${thumb.Text}</p>
+                        </div>
+                        <div class="${evenImageClass}">
+                          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+                        </div>
+                      </div>
+                      <hr class="featurette-divider">`;
+                    }
+                  return result; 
+                }#           
+              <!-- /END THE FEATURETTES -->
+            </div>
+      

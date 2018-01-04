@@ -7,14 +7,18 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-#{
-	return `<link rel="icon" href="${_content}/bootstrap/favicon.ico">
-			<!-- Bootstrap core CSS -->
-			<link href="${_content}/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-			<!-- Custom styles for this template -->
-			<link href="${_content}/carousel.css" rel="stylesheet">`;   
-}#
 
+#{
+  html.IncludeFile('bootstrap/dist/fonts/glyphicons-halflings-regular.woff2');
+  html.IncludeFile('bootstrap/dist/fonts/glyphicons-halflings-regular.woff');
+  html.IncludeFile('bootstrap/dist/fonts/glyphicons-halflings-regular.ttf');
+
+	return `<link rel="icon" href="${html.IncludeFile('/bootstrap/favicon.ico')}">
+			<!-- Bootstrap core CSS -->
+			<link href="${html.IncludeFile('bootstrap/dist/css/bootstrap.min.css')}" rel="stylesheet">
+			<!-- Custom styles for this template -->
+			<link href="${html.IncludeFile('carousel.css')}" rel="stylesheet">`;   
+}#
     <title>Carousel Template for Bootstrap</title>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -135,7 +139,7 @@ return LayoutBody;
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 #{
-	return `<script src="${_content}/bootstrap/dist/js/bootstrap.min.js"></script>`;   
+	return `<script src="${html.IncludeFile('bootstrap/dist/js/bootstrap.min.js')}"></script>`;   
 }#
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
